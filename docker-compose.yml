@@ -1,0 +1,38 @@
+version: "3.7"
+
+services:
+  db_mysql:
+    image: mysql:8.0.17
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    expose:
+      - "3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+  db_postgres:
+    image: postgres:9.6.15
+    container_name: postgres-container
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432"
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+  rails:
+    build: "."
+    container_name: rails-container
+    command: /bin/bash
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./rails:/docker
+    depends_on:
+      - db_mysql
+      - db_postgres
