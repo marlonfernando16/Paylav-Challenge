@@ -1,24 +1,46 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to Run:
 
-Things you may want to cover:
+* First, clone this repository:
 
-* Ruby version
+```
+https://github.com/marlonfernando16/Paylav-Challenge.git
+```
 
-* System dependencies
+On root folder:
 
-* Configuration
+```
+docker-compose up -d
+```
 
-* Database creation
+* enter the rails container:
 
-* Database initialization
+```
+docker attach rails-container 
+```
 
-* How to run the test suite
+* Move the cloned project to rails folder 
 
-* Services (job queues, cache servers, search engines, etc.)
+* In the project, install dependencies:
 
-* Deployment instructions
+```
+bundle install
+```
 
-* ...
+* create database
+
+```
+rails db:create
+```
+
+* Run migrations
+
+```
+rails db:migrate
+```
+
+* Run server
+
+```
+rails s -b 0.0.0.0
+```
