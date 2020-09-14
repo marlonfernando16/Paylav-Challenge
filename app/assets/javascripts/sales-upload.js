@@ -12,7 +12,6 @@ $("button").on('click', ()=> {
   
       let lines = fileReader.result.split('\n');
       let header = lines[0].split('\t');
-      let json_result = {}
   
       let result = lines.filter((line,index)=> index > 0 && line.length > 0)
       .map(line => `{${line.split('\t').map((value,index)=> {
