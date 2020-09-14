@@ -7,11 +7,14 @@
 https://github.com/marlonfernando16/Paylav-Challenge.git
 ```
 
-On root folder:
+* On root folder:
 
 ```
 docker-compose up -d
 ```
+
+* Move the cloned project to the created rails folder 
+
 
 * enter the rails container:
 
@@ -19,27 +22,25 @@ docker-compose up -d
 docker attach rails-container 
 ```
 
-* Move the cloned project to rails folder 
-
 * In the project, install dependencies:
 
 ```
 bundle install
 ```
 
-* create database
+* create database:
 
 ```
 rails db:create
 ```
 
-* Run migrations
+* Run migrations:
 
 ```
 rails db:migrate
 ```
 
-* Run server
+* Run server:
 
 ```
 rails s -b 0.0.0.0
